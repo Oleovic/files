@@ -43,7 +43,7 @@ namespace TextFiles
             while(!ok)
             {
                 nom = s.IndexOf("  ");//ищем два пробела подряд
-                if (nom > 0) s.Remove(nom, 1);
+                if (nom > 0) s=s.Remove(nom, 1);
                 else ok = true;
             }
            string[] strMas = s.Split();
