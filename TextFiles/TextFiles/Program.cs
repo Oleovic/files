@@ -64,7 +64,30 @@ namespace TextFiles
 
             TransformStringToInt(strMas, mas);
         }
-        
+        static void WriteTextFile(string filename, int[]mas)
+        {
+            StreamWriter f = null; 
+            try
+            {
+                f = new StreamWriter("text.txt");
+                f.WriteLine("Отсортированные числа");
+                for(int i=0;i<mas.Length;i++)
+                {
+                    f.Write(mas[i] + " ");
+
+
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+                return;
+            }
+            finally
+            { f.Close(); }
+        }
         static void Main(string[] args)
         {
             int[] mas;
@@ -73,6 +96,7 @@ namespace TextFiles
                 Console.Write(mas[i] + "\t");
             Console.WriteLine();
             Array.Sort(mas);
+            WriteTextFile(@"D:\Git\files\TextFiles\TextFiles\text2.txt",mas);
         }
     }
 }
