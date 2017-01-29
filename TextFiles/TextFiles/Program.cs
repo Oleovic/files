@@ -27,8 +27,21 @@ namespace TextFiles
                 }
             }
 
-            
-               
+        }
+
+        static int CountNumbers(string[] mas)
+        {
+            int count = 0;
+            int number;
+            for (int i = 0; i < mas.Length; i++)
+            {
+                if (MakeInt(mas[i], out number))
+                {
+                    count++;
+                }
+            }
+            return count;
+
         }
         static void ReadTextFile(string filename,out int[]mas)
         {
@@ -47,7 +60,7 @@ namespace TextFiles
                 else ok = true;
             }
            string[] strMas = s.Split();
-            mas=new int[strMas.Length];
+            mas=new int[CountNumbers(strMas)];
 
             TransformStringToInt(strMas, mas);
         }
