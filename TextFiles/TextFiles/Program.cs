@@ -64,6 +64,7 @@ namespace TextFiles
 
             TransformStringToInt(strMas, mas);
         }
+        
         static void Main(string[] args)
         {
             int[] mas;
@@ -71,6 +72,7 @@ namespace TextFiles
             for (int i = 0; i < mas.Length; i++)
                 Console.Write(mas[i] + "\t");
             Console.WriteLine();
+            Array.Sort(mas);
         }
     }
 }
