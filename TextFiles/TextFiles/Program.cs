@@ -45,10 +45,14 @@ namespace TextFiles
         }
         static void ReadTextFile(string filename,out int[]mas)
         {
-            StreamReader f = new StreamReader(filename);
-            string s = f.ReadToEnd();
-            Console.WriteLine(s);
-            f.Close();
+            //StreamReader f = new StreamReader(filename);
+            //string s = f.ReadToEnd();
+            //Console.WriteLine(s);
+            //f.Close();
+            string s;
+            ReadFile(filename,out s);
+
+            Console.WriteLine("Исходная строка: " + s);
             s.Trim();//удаляем пробелы из начала и конца
 
             bool ok = false;
@@ -64,12 +68,21 @@ namespace TextFiles
 
             TransformStringToInt(strMas, mas);
         }
+
+        static void ReadFile(string filename, out string str)
+        {
+            StreamReader f = new StreamReader(filename);
+            str = f.ReadToEnd();
+            //Console.WriteLine(s);
+            f.Close();
+        }
         static void WriteTextFile(string filename, int[]mas)
         {
             StreamWriter f = null; 
             try
             {
                 f = new StreamWriter("text.txt");
+
                 f.WriteLine("Отсортированные числа");
                 for(int i=0;i<mas.Length;i++)
                 {
@@ -91,12 +104,15 @@ namespace TextFiles
         static void Main(string[] args)
         {
             int[] mas;
-            ReadTextFile(@"D:\Git\files\TextFiles\TextFiles\text.txt", out mas);
+            string filename = @"D:\Git\files\TextFiles\TextFiles\text.txt";
+            ReadTextFile(filename, out mas);
             for (int i = 0; i < mas.Length; i++)
                 Console.Write(mas[i] + "\t");
             Console.WriteLine();
             Array.Sort(mas);
-            WriteTextFile(@"D:\Git\files\TextFiles\TextFiles\text2.txt",mas);
+            WriteTextFile(filename,mas);
+            string str;
+            ReadFile(filename, out str);
         }
     }
 }
