@@ -114,6 +114,7 @@ namespace TextFiles
             WriteTextFile(filename,mas);
             string str;
             ReadFile(filename, out str);
+            Console.WriteLine(str);
         }
     }
 }
