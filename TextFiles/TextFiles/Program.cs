@@ -81,7 +81,7 @@ namespace TextFiles
             StreamWriter f = null; 
             try
             {
-                f = new StreamWriter("text.txt");
+                f = new StreamWriter(filename);
 
                 f.WriteLine("Отсортированные числа");
                 for(int i=0;i<mas.Length;i++)
@@ -107,7 +107,7 @@ namespace TextFiles
             string filename = @"D:\Git\files\TextFiles\TextFiles\text.txt";
             ReadTextFile(filename, out mas);
             for (int i = 0; i < mas.Length; i++)
-                Console.Write(mas[i] + "\t");
+            Console.Write(mas[i] + "\t");
             Console.WriteLine();
             Array.Sort(mas);
             WriteTextFile(filename,mas);
