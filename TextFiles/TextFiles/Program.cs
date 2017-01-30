@@ -9,6 +9,7 @@ namespace TextFiles
 {
     class Program
     {
+        
         static bool MakeInt(string str,out int number)
         {
             bool ok = Int32.TryParse(str, out number);
